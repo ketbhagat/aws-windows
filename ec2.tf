@@ -7,7 +7,7 @@ resource "aws_instance" "win" {
 		<powershell>
 		Set-Location "C:\Windows\system32"
 		#Change TimeZone
-		C:\Windows\System32\tzutil /s "AUS Eastern Standard Time"
+		C:\Windows\System32\tzutil /s "Indian Standard Time"
 		#Install Chrome 
 		$Path = $env:TEMP;
 		$Installer = "chrome_installer.exe";
@@ -15,7 +15,7 @@ resource "aws_instance" "win" {
 		Start-Process -FilePath $Path\$Installer -ArgumentList "/silent /install" -Verb RunAs -Wait;
 		Remove-Item $Path\$Installer
 		#Set Chrome as default browser
-		$chromePath = "${Env:ProgramFiles(x86)}\Google\Chrome\Application\" 
+		$chromePath = "${Env:ProgramFiles}\Google\Chrome\Application\" 
 		$chromeApp = "chrome.exe"
 		$chromeCommandArgs = "--make-default-browser"
 		& "$chromePath$chromeApp" $chromeCommandArgs
