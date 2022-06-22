@@ -23,7 +23,7 @@ resource "aws_instance" "win" {
 		$chromeCommandArgs = "--make-default-browser"
 		& "$chromePath$chromeApp" $chromeCommandArgs
 		</powershell>
-	EOF
+		EOF
 	key_name = "Mumbai-KeyPair"
 	tags = {
 		Name = "WSC-Win"
