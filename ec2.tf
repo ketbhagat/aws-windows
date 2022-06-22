@@ -23,6 +23,7 @@ $chromeApp = "chrome.exe"
 $chromeCommandArgs = "--make-default-browser"
 & "$chromePath$chromeApp" $chromeCommandArgs
 </powershell>
+	EOF
 	key_name = "Mumbai-KeyPair"
 	tags = {
 		Name = "WSC-Win"
