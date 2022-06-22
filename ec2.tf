@@ -2,6 +2,7 @@
 resource "aws_instance" "win" {
 	ami = data.aws_ami.windows.id
 	instance_type = "t2.micro"
+	vpc_security_group_ids = [ aws_security_group.allow_tls.id ]
 	user_data = <<EOF	
 <powershell>
 Set-Location "C:\Windows\system32"
