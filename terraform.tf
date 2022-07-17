@@ -1,10 +1,10 @@
 #Terraform
 terraform {
-	required_version = "1.2.3"
+	required_version = "1.2.4"
 	required_providers {
-		wellspringcloud = {
+		aws = {
 			source  = "registry.terraform.io/hashicorp/aws"
-			version = "~> 4.19"
+			version = "~> 4.22"
 		}
 	}
 }
