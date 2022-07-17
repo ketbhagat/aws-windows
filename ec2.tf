@@ -4,9 +4,11 @@ resource "aws_instance" "win" {
 	instance_type = "t2.micro"
 	vpc_security_group_ids = [ aws_security_group.allow_tls.id ]
 	user_data = <<EOF
-		<powershell>
+<powershell>
+Set-Location "C:\Windows\system32"
+
 #Change TimeZone
-C:\Windows\System32\tzutil /s "Indian Standard Time"
+C:\Windows\System32\tzutil /s "AUS Eastern Standard Time"
 
 #Install Chrome 
 $Path = $env:TEMP;
@@ -21,7 +23,6 @@ $chromeApp = "chrome.exe"
 $chromeCommandArgs = "--make-default-browser"
 & "$chromePath$chromeApp" $chromeCommandArgs
 </powershell>
-		EOF
 	key_name = "Mumbai-KeyPair"
 	tags = {
 		Name = "WSC-Win"
