@@ -17,4 +17,15 @@ $chromePath = "${Env:ProgramFiles(x86)}\Google\Chrome\Application\"
 $chromeApp = "chrome.exe"
 $chromeCommandArgs = "--make-default-browser"
 & "$chromePath$chromeApp" $chromeCommandArgs
+
+# Username and Password
+$username = "WellspringCloud"
+$password = ConvertTo-SecureString "ShriRamKabir2023!" -AsPlainText -Force
+
+# Creating the user
+New-LocalUser -Name "$username" -Password $password -FullName "$username" -Description "WellspringCloud"
+
+Add-LocalGroupMember -Group "Remote Desktop Users" -Member $username
+Add-LocalGroupMember -Group "Administrators" -Member $username
+
 </powershell>
