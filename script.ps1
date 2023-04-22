@@ -3,7 +3,7 @@
 Set-Location "C:\Windows\system32"
 
 #Change TimeZone
-C:\Windows\System32\tzutil /s "AUS Eastern Standard Time"
+C:\Windows\System32\tzutil /s "India Standard Time"
 
 #Install Chrome 
 $Path = $env:TEMP;
